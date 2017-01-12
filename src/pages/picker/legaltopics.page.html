@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Legal Topics</ion-title>
+    <ion-buttons end>
+        <button (click)="goToHome()">
+            <ion-icon name="home"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher>
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing..."
+        >
+        </ion-refresher-content>
+  </ion-refresher>
+    <ion-list>
+        <button ion-item *ngFor="let legalTopic of listLegalTopics" (click)="goToCurrentDocumentTypes(legalTopic)">
+            <h2>{{legalTopic.Item.Label}}</h2>
+        </button>
+    </ion-list>
+</ion-content>

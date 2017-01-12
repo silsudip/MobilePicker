@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Knowhow Types</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+   <ion-list>
+      <button ion-item *ngFor="let knowhowType of listKnowhowTypes" (click)="goToCurrentLegalTopics(knowhowType)">
+          <h2>{{knowhowType.Item.Label}}</h2>
+          <p>{{knowhowType.Item.Description}}</p>
+      </button>
+    </ion-list>
+</ion-content>
+  
